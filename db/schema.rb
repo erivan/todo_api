@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_30_213528) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_31_114456) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "task_status", ["pending", "completed"]
 
   create_table "jwt_denylists", force: :cascade do |t|
     t.string "jti"
@@ -28,6 +32,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_30_213528) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.enum "status", default: "pending", enum_type: "task_status"
+    t.string "title"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
