@@ -39,7 +39,7 @@ gem "devise-jwt", "~> 0.12.1"
 gem "dotenv-rails", "~> 3.1"
 gem "jsonapi-serializer", "~> 2.2"
 gem "ransack", "~> 4.2"
-gem "redis", "~> 5.3"
+gem "redis", "~> 5.4"
 gem "validates_timeliness", "~> 8.0"
 
 group :development, :test do
